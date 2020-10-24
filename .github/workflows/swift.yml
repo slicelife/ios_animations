@@ -7,10 +7,34 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  build-12:
     runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Select xcode
+      run: sudo xcode-select -s /Applications/Xcode_10.3.app
+    - name: Lint the code
+      run: swiftlint lint
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
+    - name: Build
+      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=12.4" -sdk iphonesimulator12.4 clean build
 
+  build-13:
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Select xcode
+      run: sudo xcode-select -s /Applications/Xcode_11.7.app
+    - name: Lint the code
+      run: swiftlint lint
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
+    - name: Build
+      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=13.7" -sdk iphonesimulator13.7 clean build
+
+  build-14:
+    runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
     - name: Select xcode
@@ -19,13 +43,18 @@ jobs:
       run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
-    - name: List available sdks
-      run: xcodebuild -showsdks
-    - name: List destinations
-      run: xcodebuild -scheme Animations-Package -showdestinations
-    - name: Build on 12.0
-      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=12.4" -sdk iphonesimulator12.4 clean build
-    - name: Build on 13.0
-      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=13.7" -sdk iphonesimulator13.7 clean build
-    - name: Build on 14.0
-      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=14" -sdk iphonesimulator14.2 clean build
+    - name: Build
+      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=14" -sdk iphonesimulator14.0 clean build
+
+  build-14-beta:
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Select xcode
+      run: sudo xcode-select -s /Applications/Xcode_12.2.app
+    - name: Lint the code
+      run: swiftlint lint
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
+    - name: Build
+      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=14.2" -sdk iphonesimulator14.2 clean build
