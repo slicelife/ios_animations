@@ -7,18 +7,6 @@ on:
     branches: [ master ]
 
 jobs:
-  build-12:
-    runs-on: macos-10.15
-    steps:
-    - uses: actions/checkout@v2
-    - name: Select xcode
-      run: sudo xcode-select -s /Applications/Xcode_10.3.app
-    - name: Lint the code
-      run: swiftlint lint
-    - name: Generate xcodeproj
-      run: swift package generate-xcodeproj
-    - name: Build
-      run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=12.4" -sdk iphonesimulator12.4 clean build
 
   build-13:
     runs-on: macos-10.15

@@ -1,3 +1,4 @@
+#if os(iOS)
 import UIKit
 
 public struct Animation {
@@ -50,3 +51,4 @@ public struct Animation {
         }
     }
 }
+#endif

@@ -24,7 +24,7 @@ colon:
   severity: error
 
 identifier_name:
-  min_length: 1
+  min_length: 2
   excluded: # names to ignore
     - id
     - to

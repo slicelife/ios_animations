@@ -1,3 +1,4 @@
+#if os(iOS)
 import UIKit
 
 public typealias PropertyAnimationBlock = () -> Void
@@ -59,3 +60,4 @@ public class AnimationCoordinator {
         }
     }
 }
+#endif
