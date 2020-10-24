@@ -24,7 +24,7 @@ public class AnimationCoordinator {
     }
     private var animations = [Animation]()
     public private(set) var duration: TimeInterval = 0.0
-    public var complete: Bool { animations.map { $0.complete }.reduce(true, { $0 && $1 }) }
+    public var complete: Bool { animations.map { $0.complete }.allSatisfy { $0 } }
     private var completion: (() -> Void )?
 
     private func tryToComplete() { if complete { completion?() } }
