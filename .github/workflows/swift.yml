@@ -18,8 +18,10 @@ jobs:
       run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
-    - name: Build
+    - name: Build on iOS
       run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=13.7" -sdk iphonesimulator13.7 clean build
+    - name: Build on tvOS
+      run: xcodebuild -scheme Animations-Package -destinations="platform=tvOS Simulator,OS=6.2" -sdk watchsimulator6.2 clean build
 
   build-14:
     runs-on: macos-10.15
@@ -31,8 +33,10 @@ jobs:
       run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
-    - name: Build
+    - name: Build on iOS
       run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=14" -sdk iphonesimulator14.0 clean build
+    - name: Build on tvOS
+      run: xcodebuild -scheme Animations-Package -destinations="platform=tvOS Simulator,OS=7.0" -sdk watchsimulator7.0 clean build
 
   build-14-beta:
     runs-on: macos-10.15
@@ -44,5 +48,7 @@ jobs:
       run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
-    - name: Build
+    - name: Build on iOS
       run: xcodebuild -scheme Animations-Package -destinations="platform=iOS Simulator,OS=14.2" -sdk iphonesimulator14.2 clean build
+    - name: Build on tvOS
+      run: xcodebuild -scheme Animations-Package -destinations="platform=tvOS Simulator,OS=7.1" -sdk watchsimulator7.1 clean build
