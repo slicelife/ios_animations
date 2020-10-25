@@ -8,14 +8,19 @@ on:
 
 jobs:
 
-  build-13:
+  lint:
+    runs-on: macos-10.15
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint the code
+      run: swiftlint lint
+
+  build-xc11_7:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
     - name: Select xcode
       run: sudo xcode-select -s /Applications/Xcode_11.7.app
-    - name: Lint the code
-      run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
@@ -23,14 +28,12 @@ jobs:
     - name: Build on tvOS
       run: xcodebuild -scheme Animations-Package -destinations="platform=tvOS Simulator,OS=6.2" -sdk watchsimulator6.2 clean build
 
-  build-14:
+  build-xc12:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
     - name: Select xcode
       run: sudo xcode-select -s /Applications/Xcode_12.app
-    - name: Lint the code
-      run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
@@ -38,14 +41,12 @@ jobs:
     - name: Build on tvOS
       run: xcodebuild -scheme Animations-Package -destinations="platform=tvOS Simulator,OS=7.0" -sdk watchsimulator7.0 clean build
 
-  build-14-beta:
+  build-xc12_2-beta:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
     - name: Select xcode
       run: sudo xcode-select -s /Applications/Xcode_12.2.app
-    - name: Lint the code
-      run: swiftlint lint
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
