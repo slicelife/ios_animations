@@ -4,6 +4,11 @@ import UIKit
 public typealias PropertyAnimationBlock = () -> Void
 public typealias PostAnimationBlock = () -> Void
 
+public struct TimeSpec {
+    public let start: TimeInterval
+    public let duration: TimeInterval
+}
+
 public class AnimationCoordinator {
     public enum Pace {
         case linear
@@ -42,6 +47,13 @@ public class AnimationCoordinator {
         self.animations.append(Animation(time: time, duration: duration, pace: pace.timingCurveProvider, animationBlock: animations, completionBlock: completion))
         self.duration = max(self.duration, time + duration)
         return self
+    }
+    
+    public func addPropertyAnimation(timeSpec: TimeSpec,
+                                     pace: Pace = .linear,
+                                     animations: @escaping PropertyAnimationBlock,
+                                     completion: PostAnimationBlock? = nil) -> Self {
+        return addPropertyAnimation(at: timeSpec.start, for: timeSpec.duration, pace: pace, animations: animations, completion: completion)
     }
 
     public func start(completion: (() -> Void)? = nil) {
