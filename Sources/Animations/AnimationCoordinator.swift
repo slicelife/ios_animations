@@ -53,7 +53,7 @@ public class AnimationCoordinator {
         self.duration = max(self.duration, time + duration)
         return self
     }
-    
+
     public func addPropertyAnimation(timeSpec: TimeSpec,
                                      pace: Pace = .linear,
                                      animations: @escaping PropertyAnimationBlock,

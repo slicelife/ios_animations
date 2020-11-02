@@ -15,6 +15,9 @@ let package = Package(
         .target(
             name: "Animations",
             dependencies: []),
+        .testTarget(
+            name: "AnimationsTests",
+            dependencies: [ "Animations" ]),
     ],
     swiftLanguageVersions: [
         .v5
