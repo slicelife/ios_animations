@@ -24,9 +24,9 @@ jobs:
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=13.7" -sdk iphonesimulator13.7 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=13.7,name=iPhone 11 Pro" -sdk iphonesimulator13.7 clean build test
     - name: Build on tvOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=6.2" -sdk watchsimulator6.2 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=13.4,name=Apple TV 4K" -sdk appletvsimulator13.4 clean build test
 
   build-xc12:
     runs-on: macos-10.15
@@ -37,9 +37,9 @@ jobs:
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=14" -sdk iphonesimulator14.0 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=14.0,name=iPhone 11 Pro" -sdk iphonesimulator14.0 clean build test
     - name: Build on tvOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=7.0" -sdk watchsimulator7.0 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=14.0,name=Apple TV 4K" -sdk appletvsimulator14.0 clean build test
 
   build-xc12_2-beta:
     runs-on: macos-10.15
@@ -50,6 +50,6 @@ jobs:
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Build on iOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=14.2" -sdk iphonesimulator14.2 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=iOS Simulator,OS=14.2,name=iPhone 12 mini" -sdk iphonesimulator14.2 clean build test
     - name: Build on tvOS
-      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=7.1" -sdk watchsimulator7.1 clean build test
+      run: xcodebuild -scheme Animations-Package -destination "platform=tvOS Simulator,OS=14.2,name=Apple TV 4K" -sdk appletvsimulator14.2 clean build test
