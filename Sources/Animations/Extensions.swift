@@ -1,21 +1,21 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-extension CGRect {
-    public var centerPoint: CGPoint {
+public extension CGRect {
+    var centerPoint: CGPoint {
         return CGPoint(x: midX, y: midY)
     }
 }
 
-extension CGPoint {
-    public func translatedBy(x deltaX: CGFloat, y deltaY: CGFloat) -> CGPoint {
+public extension CGPoint {
+    func translatedBy(x deltaX: CGFloat, y deltaY: CGFloat) -> CGPoint {
         return CGPoint(x: x + deltaX,
                        y: y + deltaY)
     }
 }
 
-extension UIView {
-    public func setAnchorCoordinate(_ coordinate: CGPoint) {
+public extension UIView {
+    func setAnchorCoordinate(_ coordinate: CGPoint) {
         var newPoint = CGPoint(x: coordinate.x / bounds.size.width, y: coordinate.y / bounds.size.height)
         var oldPoint = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y)
 

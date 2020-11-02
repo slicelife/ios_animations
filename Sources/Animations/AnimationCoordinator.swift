@@ -7,6 +7,11 @@ public typealias PostAnimationBlock = () -> Void
 public struct TimeSpec {
     public let start: TimeInterval
     public let duration: TimeInterval
+
+    public init(start: TimeInterval, duration: TimeInterval) {
+        self.start = start
+        self.duration = duration
+    }
 }
 
 public class AnimationCoordinator {
