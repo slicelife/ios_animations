@@ -16,7 +16,7 @@ Either:
 1. In your Package.swift:
 
 ```
-.package(url: "git@github.com:slicelife/ios_animations.git", from: "1.1.1"),
+.package(url: "git@github.com:slicelife/ios_animations.git", from: "1.1.0"),
 
 ```
 
@@ -32,6 +32,6 @@ To specify in your `Podfile` ensure to use our Slice Private Pod Repo then speci
 source 'git@github.com:slicelife/pods-ios.git'
 ...
 
-pod 'Animations', '~> 1.1.1'
+pod 'Animations', '~> 1.1.0'
 
 ```
